@@ -20,7 +20,7 @@
                 <div class="col-xl">
                   <div class="card mb-6">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                      <h5 class="mb-0">Add New Blog Post</h5>
+                      <h5 class="mb-0">Edit New Blog Post</h5>
                       {{session('message')}}
                      
                     </div>

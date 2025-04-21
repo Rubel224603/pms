@@ -21,7 +21,7 @@
                   <div class="card mb-6">
                     <div class="card-header d-flex justify-content-between align-items-center">
                       <h5 class="mb-0">Add New Blog Post</h5>
-                      {{session('message')}}
+                    <p class="text-primary">{{session('message')}}</p>  
                      
                     </div>
                     <div class="card-body">

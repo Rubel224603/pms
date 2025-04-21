@@ -33,13 +33,13 @@ class BlogController extends Controller
 
     public function update($id,Request $request){
         Blog::updateBlog($id,$request);
-        return redirect('/blog-index');
+        return redirect('/blog-index')->with("update","post updated succefully");
     }
 
     public function delete($id)
     {
         Blog::deleteBlog($id);
-        return back('message',"Blog Deleted");
+        return back()->with('message',"Blog Deleted");
     }
     
     public function show($id)
