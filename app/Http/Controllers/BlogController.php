@@ -48,6 +48,10 @@ class BlogController extends Controller
       return view('admin.blog.singlePost',['blog'=>Blog::find($id)]);
     }
 
+    public function allBlog(){
+        return view('admin.blog.allblog',['blogs'=>Blog::all()]);
+    }
+
 
 }
 

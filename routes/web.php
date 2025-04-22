@@ -19,5 +19,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::post('/blog-update/{id}',[BlogController::class,'update'])->name('blog.update');
     Route::get('/blog-delete/{id}',[BlogController::class,'delete'])->name('blog.delete');
     Route::get('/blog-show/{id}',[BlogController::class,'show'])->name('blog.show');
-   
+    Route::get('/blog-all',[BlogController::class,'allBlog'])->name('blog.all');
+
 });

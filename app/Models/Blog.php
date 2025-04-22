@@ -60,4 +60,8 @@ class Blog extends Model
         }
         self::$blog->delete();
     }
+
+    public function  user(){
+      return      $this->belongsTo(User::class);
+    }
 }
