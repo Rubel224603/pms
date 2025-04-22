@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 
 class Blog extends Model
@@ -27,6 +28,7 @@ class Blog extends Model
 
         self::$blog              = new Blog();
         self::$blog->title       = $request->title;
+        self::$blog->user_id     = Auth::user()->id;
         self::$blog->content     = $request->content;
         self::$blog->thumb_image = self::getImageUrl($request);
         self::$blog->save();

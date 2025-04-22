@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\Models\Blog;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -22,13 +23,13 @@ class BlogController extends Controller
     }
 
     public function blog(){
-        return view('admin.blog.index',['blogs'=>Blog::all()]);
+        return view('admin.blog.index',['blogs'=>Blog::where('user_id',Auth::user()->id)->get()]);
     }
 
     public function edit($id){
-        
+
         return view("admin.blog.edit",['blog'=>Blog::find($id)]);
-        
+
     }
 
     public function update($id,Request $request){
@@ -41,13 +42,13 @@ class BlogController extends Controller
         Blog::deleteBlog($id);
         return back()->with('message',"Blog Deleted");
     }
-    
+
     public function show($id)
     {
       return view('admin.blog.singlePost',['blog'=>Blog::find($id)]);
     }
 
-  
+
 }
-   
+
 

@@ -3,7 +3,7 @@
 
 <div class="container-xxl flex-grow-1 container-p-y">
 
-   
+
 
 
     <!--/ Basic Bootstrap Table -->
@@ -17,16 +17,17 @@
                 <h5 class="mb-0">All  Blog Post</h5>
                <p class="text-primary"> {{session('message')}}</p>
                 <p class="text-danger">{{session('update')}}</p>
-               
+
               </div>
               <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
                       <tr>
+                          <th>Author</th>
                         <th>Blog Title</th>
                         <th>Blog Description</th>
                         <th>Image</th>
-                        
+
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -34,8 +35,9 @@
                         @foreach ($blogs as $blog)
 
                         <tr>
+                            <td>{{Auth::user()->name}}</td>
                             <td style="width:100px;">{{$blog->title}}</td>
-                            
+
                             <td style="width:350px;">
                               {{$blog->content}}
                             </td>
@@ -54,15 +56,15 @@
               </div>
             </div>
           </div>
-         
+
         </div>
-   
 
 
-     
+
+
       <!-- / Content -->
 
-  
+
     </div>
 
 

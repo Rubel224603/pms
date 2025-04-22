@@ -135,12 +135,12 @@
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
             <li class="menu-item active open">
-             
-             
+
+
                 <div style="margin-left:20px;" >Dashboards</div>
-               
+
               </a>
-             
+
             </li>
 
             <!-- Layouts -->
@@ -161,13 +161,13 @@
                     <div >Mange Post</div>
                   </a>
                 </li>
-                
+
               </ul>
             </li>
 
-        
-          
-           
+
+
+
           </ul>
         </aside>
 
@@ -232,8 +232,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <h6 class="mb-0 small">John Doe</h6>
-                            <small class="text-muted">Admin</small>
+                            <h6 class="mb-0 small"> {{ Auth::user()->name }}</h6>
+                            <small class="text-muted">{{Auth::user()->email}}</small>
                           </div>
                         </div>
                       </a>
@@ -298,7 +298,7 @@
     </div>
     <!-- / Layout wrapper -->
 
-   
+
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
