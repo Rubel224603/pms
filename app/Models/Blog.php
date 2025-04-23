@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class Blog extends Model
@@ -26,12 +27,13 @@ class Blog extends Model
 
     public static function addNewBlog($request){
 
-        self::$blog              = new Blog();
-        self::$blog->title       = $request->title;
-        self::$blog->user_id     = Auth::user()->id;
-        self::$blog->content     = $request->content;
-        self::$blog->thumb_image = self::getImageUrl($request);
-        self::$blog->save();
+            self::$blog              = new Blog();
+            self::$blog->title       = $request->title;
+            self::$blog->user_id     = Auth::user()->id;
+            self::$blog->content     = $request->content;
+            self::$blog->thumb_image = self::getImageUrl($request);
+            self::$blog->save();
+            return self::$blog->id;
     }
 
     public static function updateBlog($id,$request){
@@ -50,6 +52,7 @@ class Blog extends Model
 
         self::$blog->save();
 
+
     }
 
      public static function deleteBlog($id){
@@ -59,9 +62,11 @@ class Blog extends Model
             unlink(self::$blog->thumb_image);
         }
         self::$blog->delete();
+
     }
 
     public function  user(){
-      return      $this->belongsTo(User::class);
+      return $this->belongsTo(User::class);
     }
+
 }
