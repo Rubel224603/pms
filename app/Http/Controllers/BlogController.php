@@ -20,13 +20,13 @@ class BlogController extends Controller
     }
     public function store(Request $request){
 
-       // return $request;
+
         try {
             DB::beginTransaction();
 
             $blogId = Blog::addNewBlog($request);
 
-            $action ="created";
+            $action = "created";
 
             Post_logs::addNewPostLog($blogId,$action);
             DB::commit();
@@ -53,8 +53,8 @@ class BlogController extends Controller
 
     public function update($id,Request $request){
 
-        try{
-            DB::beginTransaction();
+       try{
+           DB::beginTransaction();
 
 
             Blog::updateBlog($id,$request);
@@ -65,14 +65,15 @@ class BlogController extends Controller
 
             return redirect('/blog-index')->with("update","post updated succefully");
 
-       }
-       catch (\Exception $e){
+        }
+        catch (\Exception $e){
             DB::rollBack();
-           return back()->with("message",$e->getMessage());
+            return back()->with("message",$e->getMessage());
 
-       }
+        }
 
     }
+
 
     public function delete($id){
         try{
