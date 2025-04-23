@@ -72,7 +72,7 @@
                                    </a>
 
                                </td>
-                               <td>{{$blog->created_at}}</td>
+                               <td>{{$blog->created_at->format('d M Y,H:i')}}</td>
                            </tr>
                        @endforeach
                     </tbody>

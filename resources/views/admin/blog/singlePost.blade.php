@@ -3,7 +3,7 @@
 
 <div class="container-xxl flex-grow-1 container-p-y">
     <!-- Basic Bootstrap Table -->
-    
+
     <!--/ Basic Bootstrap Table -->
 
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -12,13 +12,11 @@
           <div class="col-xl">
             <div class="card mb-6">
               <div class="card-header d-flex justify-content-between align-items-center">
-                
+
                 {{session('message')}}
-               
+
               </div>
               <div class="card-body">
-                
-                    
 
                     <div class="row">
                         <div class="col">
@@ -30,29 +28,30 @@
                                 <p class="card-text">
                                     {{$blog->content}}
                                 </p>
-                               
+
                               </div>
                             </div>
-                   
+
                     </div>
-                    
-                  
-              
-              
-                
+
+
+
+
+
                 </div>
             </div>
           </div>
-         
+
         </div>
 
-     <div class="container">
-       
-     </div>
 
 
-     
+
       <!-- / Content -->
+
+
+
+
 
 
 @endsection

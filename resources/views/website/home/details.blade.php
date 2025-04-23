@@ -53,56 +53,55 @@
 
 <body>
 
+    <div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Basic Layout -->
+    <div class="row" style="; margin-left:70px;">
+        <div class="col-xl">
+            <div class="card mb-6">
 
-    <div class="container mt-5">
-        <h1 class="text-center fw-bolder">Welcome to Our Blog</h1>
-        <div class="row row-cols-1 row-cols-md-3 g-6 mb-6">
-            @foreach($blogs as $blog)
-            <div class="col">
-                <div class="card h-100" style="padding:20px;">
-                    <img class="card-img-top"  style="margin-top:50px;" src="{{$blog->thumb_image}}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h5 class="card-title">{{$blog->title}}</h5>
-                        <p class="card-text">
-                            {{ substr(strip_tags($blog->content), 0, 100) }}...
-                        </p>
-                        <a href="{{route('details',['id'=>$blog->id])}}" class="text-center">read more</a>
+                <div class="card-header d-flex justify-content-between align-items-center">
+
+                    <a href="{{route('home')}}" class="btn btn-success">Back To Home</a>
+                    <h3 class="h3">Blog Details Page</h3>
+
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="card mb-4">
+                                <img src="{{asset($blog->thumb_image)}}" alt="" style="width:300px;margin-top:30px;margin-left:30px;">
+                                <div class="card-body">
+                                    <h2 class="card-title text-uppercase"> {{$blog->title}}</h2>
+                                    <p class="card-text">
+                                        {{$blog->content}}
+                                    </p>
+                                    <p class="text-muted">Posted on <strong>{{ $blog->created_at->toDateString() }}</strong> by <strong>{{$blog->user->name}}</strong></p>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
                     </div>
                 </div>
             </div>
-            @endforeach
 
         </div>
-    </div>
+
+
+
+
+        <!-- / Content -->
 
 
 
 
 
 
-
-
-
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="{{asset('/')}}admin/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="{{asset('/')}}admin/assets/vendor/libs/popper/popper.js"></script>
-    <script src="{{asset('/')}}admin/assets/vendor/js/bootstrap.js"></script>
-    <script src="{{asset('/')}}admin/assets/vendor/libs/node-waves/node-waves.js"></script>
-    <script src="{{asset('/')}}admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="{{asset('/')}}admin/assets/vendor/js/menu.js"></script>
-
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-    <script src="{{asset('/')}}admin/assets/vendor/libs/masonry/masonry.js"></script>
-
-    <!-- Main JS -->
-    <script src="{{asset('/')}}admin/assets/js/main.js"></script>
-
-    <!-- Page JS -->
-
-    <!-- Place this tag before closing body tag for github widget button. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>

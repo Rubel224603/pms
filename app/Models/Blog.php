@@ -40,23 +40,28 @@ class Blog extends Model
 
         self::$blog = Blog::find($id);
 
-        if($request->file('thumb_image')){
+        if(isset($request->thumb_image)){
 
-            self::$image    = $request->thumb_image;
-            self::$imgUrl   = self::getImageUrl($request);
+            if($request->file('thumb_image')){
+
+                self::$image    = $request->thumb_image;
+                self::$imgUrl   = self::getImageUrl($request);
+            }
+
+            self::$blog->title       = $request->title;
+            self::$blog->content     = $request->content;
+            self::$blog->thumb_image =  self::$imgUrl;
+
+            self::$blog->save();
         }
-
-        self::$blog->title       = $request->title;
-        self::$blog->content     = $request->content;
-        self::$blog->thumb_image =  self::$imgUrl;
-
-        self::$blog->save();
 
 
     }
 
      public static function deleteBlog($id){
+
         self::$blog = Blog::find($id);
+
         if(file_exists(self::$blog->thumb_image))
         {
             unlink(self::$blog->thumb_image);
