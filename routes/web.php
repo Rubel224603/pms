@@ -7,7 +7,9 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BlogController;
 
+
 Route::get('/',[WelcomeController::class,'index']);
+Route::get('/demo',[WelcomeController::class,'myService']);
 Route::get('/home',[WelcomeController::class,'index'])->name('home');
 Route::get('/details/{id}',[WelcomeController::class,'details'])->name('details');
 

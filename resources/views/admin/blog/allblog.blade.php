@@ -56,13 +56,13 @@
                                    </a>
                                    <a href="{{$blog->user_id==Auth::user()->id ? route('blog.edit',['id'=>$blog->id]) : '#'}}" class="btn btn-primary mt-2"
                                       @if($blog->user_id != Auth::user()->id)
-                                        onclick="alert('You are not access this.'); return false;"
+                                        onclick="alert('You have to not access to edit this.'); return false;"
                                        @endif >edit
                                    </a>
 
                                    <a href="{{$blog->user_id==Auth::user()->id ? route('blog.delete',['id'=>$blog->id]) : '#'}}" class="btn btn-danger mt-2"
                                       @if($blog->user_id != Auth::user()->id)
-                                      onclick="alert('You are not access this.'); return false;"
+                                      onclick="alert('You have to not access to delete this.'); return false;"
                                       @else
                                       onclick="alert('Are you sure.'); return true;"
                                        @endif >edit
@@ -72,7 +72,9 @@
                                    </a>
 
                                </td>
-                               <td>{{$blog->created_at->format('d M Y,H:i')}}</td>
+                               <td> {{$blog->created_at->format('d:m:y')}}
+                                   {{$blog->created_at->format('H:i:A')}}
+                               </td>
                            </tr>
                        @endforeach
                     </tbody>

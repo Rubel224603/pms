@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 Use Illuminate\Support\Facades\DB;
+use App\Providers\MyServiceProvider;
+
+use App\Http\Services\MyService;
 
 class WelcomeController extends Controller
 {
@@ -15,24 +18,21 @@ class WelcomeController extends Controller
         return view('website.home.details',['blog'=>Blog::find($id)]);
     }
 
-    public function test(){
-        try {
-            DB::beginTransaction();
 
-            $a = 10;
-            $b = 0;
-            echo $a + $b;
 
-            DB::commit();
-
-            return "Success!";
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return "Error: " . $e->getMessage();
-        }
-
+    protected $myService;
+    public function __construct(MyService  $app)
+    {
+        $this->myService = $app;
     }
+
+    public function myService()
+    {
+        $sum = $this->myService->sumCalculate(10, 5);
+        return view('website.demo.index', compact('sum'));
+    }
+
+
 
 
 

@@ -38,7 +38,6 @@ class Blog extends Model
 
     public static function updateBlog($id,$request){
 
-
         self::$blog = Blog::find($id);
 
         if(isset($request->thumb_image)){
@@ -49,9 +48,7 @@ class Blog extends Model
 
             self::$blog->title       = $request->title;
             self::$blog->content     = $request->content;
-
             self::$blog->save();
-
 
 
     }

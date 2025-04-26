@@ -63,6 +63,8 @@
 
                     <a href="{{route('home')}}" class="btn btn-success">Back To Home</a>
                     <h3 class="h3">Blog Details Page</h3>
+                    {{$sumResult}}
+
 
                 </div>
                 <div class="card-body">
