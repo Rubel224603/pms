@@ -16,13 +16,14 @@
               <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">All  Blog Post</h5>
                <p class="text-primary"> {{session('message')}}</p>
-                <p class="text-danger">{{session('update')}}</p>
+                <p class="text-success">{{session('update')}}</p>
 
               </div>
               <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
                       <tr>
+                          <th>Sl</th>
                           <th>Author</th>
                         <th>Blog Title</th>
                         <th>Blog Description</th>
@@ -32,9 +33,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach ($blogs as $blog)
+                        @foreach ($blogs as $key=>$blog)
 
                         <tr>
+                            <td>{{ $blogs->firstItem() + $key }}</td>
                             <td>{{Auth::user()->name}}</td>
                             <td style="width:100px;">{{$blog->title}}</td>
 
@@ -52,7 +54,12 @@
                           </tr>
                         @endforeach
                     </tbody>
+
                   </table>
+                  <div class="d-flex justify-content-around mt-5">
+                      <a href="{{$blogs->previousPageUrl()}} ">Previous</a>
+                      <a href="{{$blogs->nextPageUrl()}}">Next</a>
+                  </div>
               </div>
             </div>
           </div>

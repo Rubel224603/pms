@@ -11,7 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        app()->bind("first_service",function($app){
+            dd('this is my first Service');
+        });
     }
 
     /**

@@ -46,7 +46,6 @@
 
 <body>
 
-{{$sumResult}}
     <div class="container mt-5">
         <h1 class="text-center fw-bolder">Welcome to Our Blog</h1>
         <div class="row row-cols-1 row-cols-md-3 g-6 mb-6">

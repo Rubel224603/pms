@@ -38,13 +38,20 @@ class Blog extends Model
 
     public static function updateBlog($id,$request){
 
+        //dd($blog = Blog::find($id));
+        //dd($request);
+
         self::$blog = Blog::find($id);
+
 
         if(isset($request->thumb_image)){
 
-                self::$image    = $request->thumb_image;
-                self::$imgUrl   = self::getImageUrl($request);
-            }
+            self::$image               = $request->thumb_image;
+            self::$imgUrl              = self::getImageUrl($request);
+            self::$blog->thumb_image   = self::$imgUrl;
+        }
+
+
 
             self::$blog->title       = $request->title;
             self::$blog->content     = $request->content;
@@ -56,6 +63,7 @@ class Blog extends Model
      public static function deleteBlog($id){
 
         self::$blog = Blog::find($id);
+        //dd(self::$blog);
 
         if(file_exists(self::$blog->thumb_image))
         {

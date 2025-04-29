@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post_logs;
+
+use App\PostRepositoryInterface;
 use Illuminate\Http\Request;
-Use App\Models\Blog;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use mysql_xdevapi\Exception;
@@ -12,23 +13,42 @@ use mysql_xdevapi\Exception;
 class BlogController extends Controller
 {
     public $action;
-    public function index(){
-        return view('admin.blog.index');
+    protected $postRepo;
+
+    public function __construct(PostRepositoryInterface $postRepoObj)
+    {
+        $this->postRepo = $postRepoObj;
     }
+    public function index(){
+        $blogs = $this->postRepo->all();
+        return view('admin.blog.index', compact('blogs'));
+
+        //return view('admin.blog.index',['blogs'=>Blog::where('user_id',Auth::user()->id)->get()]);
+    }
+
+
     public function create(){
         return view('admin.blog.create');
     }
+
     public function store(Request $request){
 
+            //return $request;
 
         try {
             DB::beginTransaction();
 
-            $blogId = Blog::addNewBlog($request);
+            //  $blogId = Blog::addNewBlog($request);
+            //   $action = "created";
+            //   Post_logs::addNewPostLog($blogId,$action);
+            //
 
-            $action = "created";
 
-            Post_logs::addNewPostLog($blogId,$action);
+
+            //return $this->postRepo->store($request);
+            $this->postRepo->store($request);
+
+            //dd($this->postRepo->store($request));
             DB::commit();
             return back()->with("message",'Blog Save successfully');
 
@@ -39,28 +59,29 @@ class BlogController extends Controller
             return back()->with("message",$e->getMessage());
 
         }
-}
-
-    public function blog(){
-        return view('admin.blog.index',['blogs'=>Blog::where('user_id',Auth::user()->id)->get()]);
     }
+
 
     public function edit($id){
 
-        return view("admin.blog.edit",['blog'=>Blog::find($id)]);
+        $blog = $this->postRepo->find($id);
+        return view('admin.blog.edit',compact('blog'));
+       // return view("admin.blog.edit",['blog'=>Blog::find($id)]);
 
     }
 
     public function update($id,Request $request){
+        //return $request;
 
        try{
            DB::beginTransaction();
 
 
-            Blog::updateBlog($id,$request);
-            $action = 'updated';
+            $this->postRepo->update($id,$request);
 
-            Post_logs::addNewPostLog($id,$action);
+            // $action = 'updated';
+            // $this->postRepo->addNewPostLog($updateBlogId,$action);
+            //Post_logs::addNewPostLog($id,$action);
             DB::commit();
 
             return redirect('/blog-index')->with("update","post updated succefully");
@@ -78,11 +99,15 @@ class BlogController extends Controller
     public function delete($id){
         try{
             DB::beginTransaction();
-            Blog::deleteBlog($id);
+        //  Blog::deleteBlog($id);
+            $this->postRepo->delete($id);
 
-            $action= "deleted";
 
-            Post_logs::addNewPostLog($id,$action);
+            //$action= "deleted";
+
+            // Post_logs::addNewPostLog($id,$action);
+               // $this->postRepo->addNewPostLog($deleteBlogId,$action);
+
             DB::commit();
             return back()->with('message',"Blog Deleted");
         }
@@ -96,11 +121,14 @@ class BlogController extends Controller
 
     public function show($id)
     {
-      return view('admin.blog.singlePost',['blog'=>Blog::find($id)]);
+        $blog = $this->postRepo->find($id);
+
+        return view('admin.blog.singlePost',compact('blog'));
     }
 
     public function allBlog(){
-        return view('admin.blog.allblog',['blogs'=>Blog::all()]);
+        $blogs = $this->postRepo->all();
+        return view('admin.blog.allblog',compact('blogs'));
     }
 
 

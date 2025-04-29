@@ -34,9 +34,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                       @foreach($blogs as $blog)
+                       @foreach($blogs as $key=> $blog)
                            <tr>
-                               <td>{{$loop->iteration }}</td>
+                               <td>{{ $blogs->firstItem()+ $key }}</td>
 
 
                                <td>{{$blog->user->name}}</td>
@@ -76,9 +76,20 @@
                                    {{$blog->created_at->format('H:i:A')}}
                                </td>
                            </tr>
+
                        @endforeach
+
                     </tbody>
+
+
+
                   </table>
+                  <div class="d-flex justify-content-around mt-5">
+                      <a href="{{$blogs->previousPageUrl()}}" >Previous</a>
+                      <a href="{{$blogs->nextPageUrl()}}">Next</a>
+                  </div>
+
+
               </div>
             </div>
           </div>
