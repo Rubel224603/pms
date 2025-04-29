@@ -46,6 +46,7 @@
                           <img src="{{asset($blog->thumb_image)}}" class="mt-2" alt="" height="200px" width="200px">
                         </div>
 
+                          <input type="hidden" name="page" value="{{request('page') }}">
 
                         <button type="submit" class="btn btn-primary">Update </button>
                       </form>

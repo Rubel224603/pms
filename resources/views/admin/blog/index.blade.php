@@ -48,7 +48,7 @@
                             </td>
                             <td>
                                   <a href="{{route('blog.show',['id'=>$blog->id])}}" class="btn btn-success mb-2">show</a>
-                                  <a href="{{route('blog.edit',['id'=>$blog->id])}}" class="btn btn-primary">edit</a>
+                                  <a href="{{route('blog.edit',['id'=>$blog->id,'page'=>request('page')])}}" class="btn btn-primary">edit</a>
                                   <a href="{{route('blog.delete',['id'=>$blog->id])}}" class="btn btn-danger mt-2" onclick=" return confirm('are you sure?')">delete</a>
                             </td>
                           </tr>
@@ -57,9 +57,12 @@
 
                   </table>
                   <div class="d-flex justify-content-around mt-5">
-                      <a href="{{$blogs->previousPageUrl()}} ">Previous</a>
-                      <a href="{{$blogs->nextPageUrl()}}">Next</a>
+                      <a href="{{$blogs->previousPageUrl()}} " class="btn btn-primary {{request('page') ==''||request('page') ==1 ?'disabled' :''}}" > Previous</a>
+                     <p>current page: {{request('page') ?:1}}</p>
+                      <a href="{{$blogs->nextPageUrl()}}" class="btn btn-primary">Next</a>
                   </div>
+
+
               </div>
             </div>
           </div>

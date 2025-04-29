@@ -72,8 +72,13 @@
                                    </a>
 
                                </td>
-                               <td> {{$blog->created_at->format('d:m:y')}}
-                                   {{$blog->created_at->format('H:i:A')}}
+                               <td>
+                                   {{ $blog->created_at->diffForHumans() }}
+
+                                   {{$blog->created_at->format('h:i:a')}}
+                                   {{$blog->created_at->format('d:m:y')}}
+
+
                                </td>
                            </tr>
 
@@ -85,8 +90,17 @@
 
                   </table>
                   <div class="d-flex justify-content-around mt-5">
-                      <a href="{{$blogs->previousPageUrl()}}" >Previous</a>
-                      <a href="{{$blogs->nextPageUrl()}}">Next</a>
+                    @if($blogs->onFirstPage())
+
+                      @else
+                          <a href="{{ $blogs->previousPageUrl() }}">Previous</a>
+                      @endif
+
+                      @if($blogs->onLastPage())
+                          @else
+                           <a href="{{$blogs->nextPageUrl()}}" >Next</a>
+
+                       @endif
                   </div>
 
 

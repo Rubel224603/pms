@@ -71,7 +71,10 @@ class BlogController extends Controller
     }
 
     public function update($id,Request $request){
-        //return $request;
+
+        //return $request->input();
+        $page = $request->input('page');
+        //return $page;
 
        try{
            DB::beginTransaction();
@@ -83,8 +86,8 @@ class BlogController extends Controller
             // $this->postRepo->addNewPostLog($updateBlogId,$action);
             //Post_logs::addNewPostLog($id,$action);
             DB::commit();
-
-            return redirect('/blog-index')->with("update","post updated succefully");
+            return redirect('/blog-index?page=' . $page)->with("update","post updated successfully");
+            //return redirect('/blog-index')->with("update","post updated successfully");
 
         }
         catch (\Exception $e){
