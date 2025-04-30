@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\DB;
 class Blog extends Model
 {
     public static $blog, $image, $imgUrl,$directory,$imagName;
+
+    use SoftDeletes;
 
     public static function getImageUrl($request){
 

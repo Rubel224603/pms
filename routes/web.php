@@ -6,6 +6,8 @@ use Inertia\Inertia;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PaymentServiceController;
+use App\Http\Services\PaymentService;
 
 Route::get('/welcome',function (){
     dd(app());
@@ -19,6 +21,16 @@ Route::get('/test-one',function (){
 
     return "test-1";
 });
+Route::get('/me',function (PaymentService $paymentService){
+    return $paymentService->subtraction(10,29) ;
+});
+Route::get('/ami',function(PaymentService $paymentService){
+    return $paymentService->add(10,20);
+});
+
+Route::get('/payment',[PaymentServiceController::class,'makePayment']);
+Route::get('/addnumber',[PaymentServiceController::class,'addNumber']);
+Route::get('/subtraction',[PaymentServiceController::class,'subtraction']);
 
 Route::get('/',[WelcomeController::class,'index']);
 Route::get('/demo',[WelcomeController::class,'myService']);

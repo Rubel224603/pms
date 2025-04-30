@@ -46,7 +46,7 @@
                                <td>
                                    <img src="{{asset($blog->thumb_image)}}" alt="" height="100" width="150">
                                </td>
-                               <td>
+                               <td class="text-center">
 
                                    <a href="{{$blog->user_id==Auth::user()->id ? route('blog.show',['id'=>$blog->id]) : '#'}}" class="btn btn-success"
                                       @if($blog->user_id != Auth::user()->id)
@@ -65,11 +65,8 @@
                                       onclick="alert('You have to not access to delete this.'); return false;"
                                       @else
                                       onclick="alert('Are you sure.'); return true;"
-                                       @endif >edit
-
-
-                                     delete
-                                   </a>
+                                       @endif >Delete
+                                    </a>
 
                                </td>
                                <td>
