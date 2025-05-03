@@ -32,8 +32,13 @@ class BlogController extends Controller
     }
 
     public function store(Request $request){
+         //return $request;
+        $request->validate([
+           'title'=>'required|max:100',
+           'content'=>'required|max:250',
+            'thumb_image' => 'required|image|mimes:jpeg,png,jpg|max:512',
+        ]);
 
-            //return $request;
 
         try {
             DB::beginTransaction();
@@ -71,6 +76,12 @@ class BlogController extends Controller
     }
 
     public function update($id,Request $request){
+
+        $request->validate([
+            'title'=>'required|max:100',
+            'content'=>'required|max:250',
+            'thumb_image' => 'image|mimes:jpeg,png,jpg|max:2024',
+        ]);
 
         //return $request->input();
         $page = $request->input('page');

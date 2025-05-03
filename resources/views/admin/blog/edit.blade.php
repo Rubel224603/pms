@@ -30,6 +30,9 @@
                         <div class="form-floating form-floating-outline mb-6">
                           <input type="text" class="form-control" value="{{$blog->title}}" name="title" />
                           <label for="basic-default-fullname">Title</label>
+                            @error('title')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
                         <div class="form-floating form-floating-outline mb-6">
                           <textarea
@@ -38,11 +41,17 @@
                             placeholder="Place your content?"
                             style="height: 60px" name="content" >{{$blog->content}}</textarea>
                           <label for="basic-default-message">Content</label>
+                            @error('content')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                         </div>
 
                         <div class="form-floating form-floating-outline mb-6">
                           <input type="file" class="form-control" name='thumb_image'   />
                           <label for="basic-default-company">Image_thumb</label>
+                            @error('thumb_image')
+                            <p class="text-danger">{{$message}}</p>
+                            @enderror
                           <img src="{{asset($blog->thumb_image)}}" class="mt-2" alt="" height="200px" width="200px">
                         </div>
 
