@@ -21,8 +21,9 @@ class Repository implements PostRepositoryInterface
 
     public function store($request){
 
-        //dd($blogId);
+
         $blogId = Blog::addNewBlog($request);
+        //dd($blogId);
         $action = "created";
 
         //(Post_logs::addNewPostLog($blogId,$action));
@@ -52,6 +53,11 @@ class Repository implements PostRepositoryInterface
     }
     public function show($id){
         return Blog::find($id);
+    }
+
+    public function search()
+    {
+        // TODO: Implement search() method.
     }
 
 }

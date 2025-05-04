@@ -41,7 +41,7 @@
                             id="basic-default-message"
                             class="form-control"
                             placeholder="Place your content?"
-                            style="height: 60px" name="content"> {{old('content')}}</textarea>
+                             name="content" style="height: 200px;"> {{old('content')}}</textarea>
                           <label for="basic-default-message">Content</label>
                             @error('content')
                                 <p class="text-danger">{{$message}}<p>

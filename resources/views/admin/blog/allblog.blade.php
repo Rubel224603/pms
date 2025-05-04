@@ -15,6 +15,14 @@
             <div class="card mb-6">
               <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">All  Blog Post</h5>
+                 <div>
+                     <from class="d-flex justify-content-between" action="{{route('blog.all')}}" method="GET">
+                         @csrf
+                         <input type="search" class="form-control" style="width:300px !important;margin-right:10px; !important" >
+                         <input type="submit" class="btn btn-success bg-success" value="Search" style="" >
+                     </from>
+
+                 </div>
                <p class="text-primary"> {{session('message')}}</p>
                 <p class="text-danger">{{session('update')}}</p>
 

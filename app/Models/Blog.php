@@ -29,13 +29,15 @@ class Blog extends Model
     }
 
     public static function addNewBlog($request){
-
+            //dd(Auth::user());
             self::$blog              = new Blog();
             self::$blog->title       = $request->title;
-            self::$blog->user_id     = Auth::user()->id;
+//            self::$blog->user_id     = Auth::user()->id;
+            self::$blog->user_id     = 1;
             self::$blog->content     = $request->content;
             self::$blog->thumb_image = self::getImageUrl($request);
             self::$blog->save();
+            //dd(self::$blog->id);
             return self::$blog->id;
     }
 

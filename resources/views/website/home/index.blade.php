@@ -48,6 +48,12 @@
 
     <div class="container mt-5">
         <h1 class="text-center fw-bolder">Welcome to Our Blog</h1>
+{{--        <form action="http://localhost:8000/api/blogs/3" method="POST">--}}
+{{--            <!-- spoof DELETE method -->--}}
+{{--            <input type="hidden" name="_method" value="DELETE">--}}
+{{--            <button type="submit">Delete Blog</button>--}}
+{{--        </form>--}}
+
         <div class="row row-cols-1 row-cols-md-3 g-6 mb-6">
             @foreach($blogs as $blog)
             <div class="col">

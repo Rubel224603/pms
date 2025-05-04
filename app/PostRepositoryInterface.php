@@ -13,6 +13,7 @@ interface PostRepositoryInterface
 
     public function delete($id);
     public function show($id);
+    public function search();
 
 
 
