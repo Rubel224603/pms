@@ -12,6 +12,9 @@ use App\Http\Services\MyService;
 class WelcomeController extends Controller
 {
     public function index(){
+//        session(['myname'=>"Rubel Hosen"]);
+//        dd(session()->all());
+
         return view('website.home.index',['blogs'=>Blog::latest()->get()]);
     }
     public function details($id){

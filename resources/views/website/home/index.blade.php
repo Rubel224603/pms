@@ -48,6 +48,10 @@
 
     <div class="container mt-5">
         <h1 class="text-center fw-bolder">Welcome to Our Blog</h1>
+        <a href="{{route('student.all')}}" class="btn btn-success " style="margin-top: 20px;margin-bottom: 20px;">All Student</a>
+
+        <a href="{{route('student.add.form')}}" class="btn btn-success " style="margin-top: 20px;margin-bottom: 20px;">Add Student</a>
+
 {{--        <form action="http://localhost:8000/api/blogs/3" method="POST">--}}
 {{--            <!-- spoof DELETE method -->--}}
 {{--            <input type="hidden" name="_method" value="DELETE">--}}

@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PaymentServiceController;
 use App\Http\Services\PaymentService;
+use App\Http\Controllers\API\StudentFromStudentApiController;
 
 Route::get('/welcome',function (){
     dd(app());
@@ -27,6 +28,17 @@ Route::get('/me',function (PaymentService $paymentService){
 Route::get('/ami',function(PaymentService $paymentService){
     return $paymentService->add(10,20);
 });
+
+//student date get Route;
+
+Route::get('students-from-api',[StudentFromStudentApiController::class,'getStudents'])->name('student.all');
+Route::get('students-from-api/{id}',[StudentFromStudentApiController::class,'singleStudent']);
+Route::get('student-from-add-api',[StudentFromStudentApiController::class,'addForm'])->name('student.add.form');
+Route::post('students-from-store-api',[StudentFromStudentApiController::class,'storeStudent'])->name('student.store.api');
+
+
+
+
 
 Route::get('/payment',[PaymentServiceController::class,'makePayment']);
 Route::get('/addnumber',[PaymentServiceController::class,'addNumber']);

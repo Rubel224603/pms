@@ -47,7 +47,7 @@
                                <td>{{ $blogs->firstItem()+ $key }}</td>
 
 
-                               <td>{{$blog->user->name}}</td>
+                               <td>{{$blog->user ? $blog->user->name : 'Not logged In'}}</td>
                                <td>{{$blog->title}}</td>
 
                                <td>{{$blog->content}}</td>

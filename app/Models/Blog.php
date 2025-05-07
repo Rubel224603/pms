@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+//use App\Models\User;
 
 
 class Blog extends Model
@@ -78,7 +79,7 @@ class Blog extends Model
 
     }
 
-    public function  user(){
+    public function user(){
       return $this->belongsTo(User::class);
     }
 
