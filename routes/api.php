@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->group(function () {
 //Route::apiResource('blogs',BlogController::class);
 
 Route::get('/blog/list',[BlogController::class,'index']);
+Route::get('/blog/{id}',[BlogController::class,'show']);
 Route::post('/blogs/store',[BlogController::class,'store']);
 Route::post('/blogs/update/{id}',[BlogController::class,'update']);
 Route::get('/blogs/delete/{id}',[BlogController::class,'destroy']);

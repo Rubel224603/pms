@@ -9,6 +9,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PaymentServiceController;
 use App\Http\Services\PaymentService;
 use App\Http\Controllers\API\StudentFromStudentApiController;
+use App\Http\Controllers\MailController;
 
 Route::get('/welcome',function (){
     dd(app());
@@ -29,7 +30,7 @@ Route::get('/ami',function(PaymentService $paymentService){
     return $paymentService->add(10,20);
 });
 
-//student date get Route;
+//student data get from api Route;
 
 Route::get('students-from-api',[StudentFromStudentApiController::class,'getStudents'])->name('student.all');
 Route::get('students-from-api/{id}',[StudentFromStudentApiController::class,'singleStudent']);
@@ -62,3 +63,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/blog-all',[BlogController::class,'allBlog'])->name('blog.all');
 
 });
+
+Route::post('send-mail',[MailController::class,"sendMail"])->name('send-mail');
+Route::view('send-mail','mail.welcome');
