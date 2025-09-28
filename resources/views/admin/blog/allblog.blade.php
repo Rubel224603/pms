@@ -94,19 +94,15 @@
 
 
                   </table>
+
                   <div class="d-flex justify-content-around mt-5">
-                    @if($blogs->onFirstPage())
-
-                      @else
-                          <a href="{{ $blogs->previousPageUrl() }}">Previous</a>
-                      @endif
-
-                      @if($blogs->onLastPage())
-                          @else
-                           <a href="{{$blogs->nextPageUrl()}}" >Next</a>
-
-                       @endif
+                      <a href="{{$blogs->previousPageUrl()}} " class="btn btn-primary {{request('page') ==''||request('page') ==1 ?'disabled' :''}}" > Previous</a>
+                      <p>current page: {{request('page') ?:1}}</p>
+                      <a href="{{$blogs->nextPageUrl()}}" class="btn btn-primary">Next</a>
                   </div>
+
+
+
 
 
               </div>

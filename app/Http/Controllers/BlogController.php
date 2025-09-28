@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Blog;
 use App\PostRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -21,9 +22,11 @@ class BlogController extends Controller
     }
     public function index(){
         $blogs = $this->postRepo->all();
-        return view('admin.blog.index', compact('blogs'));
 
-        //return view('admin.blog.index',['blogs'=>Blog::where('user_id',Auth::user()->id)->get()]);
+            return view('admin.blog.index', compact('blogs'));
+
+
+       // return view('admin.blog.index',['blogs'=>Blog::where('user_id',Auth::user()->id)->get()]);
     }
 
 
@@ -36,7 +39,7 @@ class BlogController extends Controller
         $request->validate([
            'title'=>'required|max:100',
            'content'=>'required|max:250',
-            'thumb_image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'thumb_image' => 'required|image|mimes:jpeg,png,jpg',
         ]);
 
 
@@ -141,7 +144,7 @@ class BlogController extends Controller
     }
 
     public function allBlog(){
-        $blogs = $this->postRepo->all();
+        $blogs = $this->postRepo->allBlog();
         return view('admin.blog.allblog',compact('blogs'));
     }
 

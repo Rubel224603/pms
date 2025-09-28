@@ -33,8 +33,8 @@ class Blog extends Model
             //dd(Auth::user());
             self::$blog              = new Blog();
             self::$blog->title       = $request->title;
-//            self::$blog->user_id     = Auth::user()->id;
-            self::$blog->user_id     = 1;
+            self::$blog->user_id     = Auth::user()->id;
+            //self::$blog->user_id     = 1;
             self::$blog->content     = $request->content;
             self::$blog->thumb_image = self::getImageUrl($request);
             self::$blog->save();

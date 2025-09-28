@@ -7,12 +7,16 @@ namespace App\Repository;
 use App\Models\Blog;
 Use App\Models\Post_logs;
 use App\PostRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 
 
 class Repository implements PostRepositoryInterface
 {
     public function all(){
-        return Blog::latest()->paginate(5);
+        $blogUser = Auth::user()->id;
+        return Blog::where("user_id",$blogUser)->paginate(5);
+
+        //return Blog::latest()->paginate(5);
 
     }
     public function find($id){
@@ -55,6 +59,10 @@ class Repository implements PostRepositoryInterface
         return Blog::find($id);
     }
 
+    public function allBlog(){
+        $blogs = Blog::latest()->paginate(5);
+        return $blogs;
+    }
     public function search()
     {
         // TODO: Implement search() method.
