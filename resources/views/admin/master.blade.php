@@ -180,6 +180,26 @@
 
                       </ul>
                     </li>
+                  <li class="menu-item">
+                      <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons ri-layout-2-line"></i>
+                        <div data-i18n="Layouts"> Image</div>
+                      </a>
+
+                      <ul class="menu-sub">
+                        <li class="menu-item">
+                          <a href="{{route('image.create')}}" class="menu-link">
+                            <div >Create Image</div>
+                          </a>
+                        </li>  <li class="menu-item">
+                          <a href="{{route('image.list')}}" class="menu-link">
+                            <div >Show all Image</div>
+                          </a>
+                        </li>
+
+
+                      </ul>
+                    </li>
 
 
 
