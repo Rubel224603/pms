@@ -116,6 +116,9 @@ class ImageProcessController extends Controller
 
     public function deleteImageProcessing($id){
         $processImages = ImageProcess::find($id);
+        if($processImages->image && file_exists('uploads/Process-image/'.$processImages->image)){
+            unlink('uploads/Process-image/'.$processImages->image);
+        }
          $processImages->delete();
          return back()->with('message',"Process Image Delete Successfully");
 
