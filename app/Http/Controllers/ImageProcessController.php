@@ -6,6 +6,7 @@ use App\Models\ImageProcess;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
+
 class ImageProcessController extends Controller
 {
     //
@@ -54,7 +55,7 @@ class ImageProcessController extends Controller
         //  return $processImages;
         return view('admin.image.list' ,compact('processImages'));
     }
-   public function editImageProcessing($id){
+    public function editImageProcessing($id){
         $processImage = ImageProcess::find($id);
        // return $processImage;
         return view('admin.image.edit' ,compact('processImage'));
@@ -123,6 +124,10 @@ class ImageProcessController extends Controller
          return back()->with('message',"Process Image Delete Successfully");
 
     }
+    public function check(){
+        return view('admin.image.check');
+    }
+
 
 
 }

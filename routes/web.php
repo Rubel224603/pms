@@ -69,6 +69,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/image/edit/{id}',[ImageProcessController::class,'editImageProcessing'])->name('image.edit');
     Route::post('/image/update/{id}',[ImageProcessController::class,'updateProcessImage'])->name('image.update');
     Route::get('/image/delete/{id}',[ImageProcessController::class,'deleteImageProcessing'])->name('image.delete');
+    Route::get('/check',[ImageProcessController::class,'check'])->name("check");
 
 
 
