@@ -14,7 +14,7 @@ class Repository implements PostRepositoryInterface
 {
     public function all(){
         $blogUser = Auth::user()->id;
-        return Blog::where("user_id",$blogUser)->paginate(5);
+        return Blog::where("user_id",$blogUser)->paginate(15);
 
         //return Blog::latest()->paginate(5);
 
@@ -60,7 +60,7 @@ class Repository implements PostRepositoryInterface
     }
 
     public function allBlog(){
-        $blogs = Blog::latest()->paginate(5);
+        $blogs = Blog::latest()->paginate(15);
         return $blogs;
     }
     public function search()

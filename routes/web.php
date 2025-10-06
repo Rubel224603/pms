@@ -11,6 +11,7 @@ use App\Http\Services\PaymentService;
 use App\Http\Controllers\API\StudentFromStudentApiController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ImageProcessController;
+use App\Http\Controllers\Import\ImportBlogController;
 //dd(Config::get('app.name'));
 
 Route::get('/welcome',function (){
@@ -58,18 +59,23 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/blog-create',[BlogController::class,'create'])->name('blog.create');
     Route::get('/blog-index',[BlogController::class,'index'])->name('blog.index');
     Route::get('/blog-edit/{id}',[BlogController::class,'edit'])->name('blog.edit');
+
     Route::post('/blog-store',[BlogController::class,'store'])->name('blog.store');
     Route::post('/blog-update/{id}',[BlogController::class,'update'])->name('blog.update');
     Route::get('/blog-delete/{id}',[BlogController::class,'delete'])->name('blog.delete');
     Route::get('/blog-show/{id}',[BlogController::class,'show'])->name('blog.show');
     Route::get('/blog-all',[BlogController::class,'allBlog'])->name('blog.all');
+
     Route::get('/image/create',[ImageProcessController::class,'createImageProcessing'])->name('image.create');
     Route::post('/image/store',[ImageProcessController::class,'storeImageProcessing'])->name('image.store');
     Route::get('/image/list',[ImageProcessController::class,'listImageProcessing'])->name('image.list');
     Route::get('/image/edit/{id}',[ImageProcessController::class,'editImageProcessing'])->name('image.edit');
     Route::post('/image/update/{id}',[ImageProcessController::class,'updateProcessImage'])->name('image.update');
     Route::get('/image/delete/{id}',[ImageProcessController::class,'deleteImageProcessing'])->name('image.delete');
+
     Route::get('/check',[ImageProcessController::class,'check'])->name("check");
+    Route::get('/import/blog-data',[ImportBlogController::class,'importForm'])->name("importForm");
+    Route::post('/import/blog-data-store',[ImportBlogController::class,'importBlogs'])->name("import-blog.store");
 
 
 

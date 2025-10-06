@@ -17,6 +17,15 @@ class BlogImport implements ToModel, WithHeadingRow,WithChunkReading,WithValidat
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+
+    protected $userId;
+
+    public function __construct($userId)
+    {
+        $this->userId = $userId;
+    }
+
+
     public function model(array $row)
     {
       //  $request = request()->user->id;
@@ -25,13 +34,14 @@ class BlogImport implements ToModel, WithHeadingRow,WithChunkReading,WithValidat
             'title'=>$row['title'],
             'content'=>$row['content'],
             'thumb_image'=>$row['thumb_image'],
+            'user_id'=>$this->userId,
         ]);
     }
 
     public function chunkSize(): int
     {
         // TODO: Implement chunkSize() method.
-        return 1000;
+        return 300;
     }
     public function rules(): array
     {
@@ -41,7 +51,7 @@ class BlogImport implements ToModel, WithHeadingRow,WithChunkReading,WithValidat
     public function batchSize(): int
     {
         // TODO: Implement batchSize() method.
-        return 1000;
+        return 300;
     }
 
 }

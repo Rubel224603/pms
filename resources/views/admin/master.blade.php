@@ -186,6 +186,24 @@
                         </ul>
                     </li>
 
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons ri-layout-2-line"></i>
+                            <div data-i18n="Layouts"> Import</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{route('importForm')}}" class="menu-link">
+                                    <div>Import Blog</div>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+
 
 
 
