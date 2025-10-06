@@ -12,6 +12,7 @@ use App\Http\Controllers\API\StudentFromStudentApiController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ImageProcessController;
 use App\Http\Controllers\Import\ImportBlogController;
+use App\Http\Controllers\Export\ExportBlogController;
 //dd(Config::get('app.name'));
 
 Route::get('/welcome',function (){
@@ -74,8 +75,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/image/delete/{id}',[ImageProcessController::class,'deleteImageProcessing'])->name('image.delete');
 
     Route::get('/check',[ImageProcessController::class,'check'])->name("check");
+    Route::get('/export/blog-data',[ExportBlogController::class,'exportBlogData'])->name("export.blog");
     Route::get('/import/blog-data',[ImportBlogController::class,'importForm'])->name("importForm");
     Route::post('/import/blog-data-store',[ImportBlogController::class,'importBlogs'])->name("import-blog.store");
+
 
 
 
