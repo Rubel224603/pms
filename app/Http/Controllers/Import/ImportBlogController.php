@@ -20,6 +20,7 @@ class ImportBlogController extends Controller
             'excel_file' => 'required|file|mimes:xlsx,csv,xls',
 
         ]);
+
         //$blogImportObj =  new BlogImport();
         //return auth()->user();// if needed user data...
 
@@ -28,5 +29,6 @@ class ImportBlogController extends Controller
         //new BlogImport(auth()->id());
         Excel::import(new BlogImport($userId),$request->file('excel_file'));
         return back()->with('message','Blog Data Imported Successfully');
+
     }
 }
