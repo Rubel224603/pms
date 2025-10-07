@@ -4,9 +4,9 @@ namespace App\Exports;
 
 use App\Models\Blog;
 use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class BlogExport implements FromCollection,WithHeadingRow
+class BlogExport implements FromCollection,WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -30,7 +30,7 @@ class BlogExport implements FromCollection,WithHeadingRow
     public function headings(): array
     {
         return [
-            '#',
+            'Id',
             'Title',
             'Content',
             'Thumb Image',
