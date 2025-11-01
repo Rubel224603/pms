@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use mysql_xdevapi\Exception;
 
 class BlogController extends Controller
@@ -148,6 +149,13 @@ class BlogController extends Controller
     public function allBlog(){
         $blogs = $this->postRepo->allBlog();
         return view('admin.blog.allblog',compact('blogs'));
+    }
+
+    public function check(){
+        $response = Http::get('https://fakestoreapi.com/products');
+        $responseDatas = $response->json();
+
+        return view('admin.check.check',compact('responseDatas'));
     }
 
 

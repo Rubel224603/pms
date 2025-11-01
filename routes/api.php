@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\BlogController;
+use App\Http\Controllers\API\CheckFackApiController;
 //
 //Route::get('/user', function (Request $request) {
 //    return $request->user();
@@ -29,6 +30,9 @@ Route::get('/blog/{id}',[BlogController::class,'show']);
 Route::post('/blogs/store',[BlogController::class,'store']);
 Route::post('/blogs/update/{id}',[BlogController::class,'update']);
 Route::get('/blogs/delete/{id}',[BlogController::class,'destroy']);
+
+//useing third party api...just practice...
+// Route::get('check/fack-api',[CheckFackApiController::class,'check']);
 
 
 

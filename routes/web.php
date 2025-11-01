@@ -80,6 +80,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::post('/import/blog-data-store',[ImportBlogController::class,'importBlogs'])->name("import-blog.store");
 
 
+    //check ...
+
+
+    Route::get('check/api-check',[BlogController::class,'check']);
+
+
+
 
 
 });
