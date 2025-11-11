@@ -101,7 +101,7 @@
                         <li class="menu-item">
                             <a href="javascript:void(0);" class="menu-link menu-toggle">
                                 <i class="menu-icon tf-icons ri-layout-2-line"></i>
-                                <div > Image</div>
+                                <div >Process Image</div>
                             </a>
 
                             <ul class="menu-sub">
@@ -124,7 +124,7 @@
                         <li class="menu-item">
                             <a href="javascript:void(0);" class="menu-link menu-toggle">
                                 <i class="menu-icon tf-icons ri-layout-2-line"></i>
-                                <div > Check</div>
+                                <div > Overflow check</div>
                             </a>
 
                             <ul class="menu-sub">
@@ -159,12 +159,12 @@
                         <li class="menu-item">
                             <a href="javascript:void(0);" class="menu-link menu-toggle">
                                 <i class="menu-icon tf-icons ri-layout-2-line"></i>
-                                <div > API Product</div>
+                                <div > API Data</div>
                             </a>
 
                             <ul class="menu-sub">
                                 <li class="menu-item">
-                                    <a href="{{ url('check/api-check') }}" class="menu-link">
+                                    <a href="{{ url('check/api-data') }}" class="menu-link">
                                         <div>Api Product Check</div>
                                     </a>
                                 </li>

@@ -151,11 +151,11 @@ class BlogController extends Controller
         return view('admin.blog.allblog',compact('blogs'));
     }
 
-    public function check(){
+    public function ApiData(){
         $response = Http::get('https://fakestoreapi.com/products');
         $responseDatas = $response->json();
 
-        return view('admin.check.check',compact('responseDatas'));
+        return view('admin.ApiData.check',compact('responseDatas'));
     }
 
 

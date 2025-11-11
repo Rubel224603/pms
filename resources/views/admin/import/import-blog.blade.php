@@ -33,7 +33,7 @@
 
                             <div class="form-floating form-floating-outline ">
                                 <input type="file" class="form-control" name='excel_file'  accept=".xlsx" />
-                                <label for="basic-default-company">Image </label>
+                                <label for="basic-default-company">excel_file </label>
                                 @error('excel_file')
                                 <p class="text-danger">{{$message}}<p>
                                 @enderror

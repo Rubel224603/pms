@@ -69,21 +69,21 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
 
     Route::get('/image/create',[ImageProcessController::class,'createImageProcessing'])->name('image.create');
     Route::post('/image/store',[ImageProcessController::class,'storeImageProcessing'])->name('image.store');
-    Route::get('/image/list',[ImageProcessController::class,'listImageProcessing'])->name('image.list');
+    Route::get('/process-image/list',[ImageProcessController::class,'listImageProcessing'])->name('image.list');
     Route::get('/image/edit/{id}',[ImageProcessController::class,'editImageProcessing'])->name('image.edit');
     Route::post('/image/update/{id}',[ImageProcessController::class,'updateProcessImage'])->name('image.update');
     Route::get('/image/delete/{id}',[ImageProcessController::class,'deleteImageProcessing'])->name('image.delete');
 
-    Route::get('/check',[ImageProcessController::class,'check'])->name("check");
+    Route::get('just/overflow/check/',[ImageProcessController::class,'check'])->name("check");
+
     Route::get('/export/blog-data',[ExportBlogController::class,'exportBlogData'])->name("export.blog");
+
     Route::get('/import/blog-data',[ImportBlogController::class,'importForm'])->name("importForm");
     Route::post('/import/blog-data-store',[ImportBlogController::class,'importBlogs'])->name("import-blog.store");
 
 
-    //check ...
-
-
-    Route::get('check/api-check',[BlogController::class,'check']);
+    //check api data...
+    Route::get('check/api-data',[BlogController::class,'ApiData']);
 
 
 
