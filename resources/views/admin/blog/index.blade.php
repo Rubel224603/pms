@@ -16,7 +16,7 @@
               <div class="card-header">
                   <div class="d-flex justify-content-between ">
                       <h5 class="mb-0">All Blog Post</h5>
-                      <a href="{{ route('export.blog') }}" class="btn btn-success">Export All Blog Data</a>
+                      <a href="{{ route('export.blog') }}" class="btn btn-success">  <i class="fa-solid fa-file-arrow-down"  style="margin-right:5px !important;"></i> Export All Blog Data</a>
                   </div>
 
                   <p class="text-primary"> {{session('message')}}</p>

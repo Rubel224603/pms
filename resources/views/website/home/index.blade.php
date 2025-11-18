@@ -76,7 +76,7 @@
             @foreach($blogs as $blog)
             <div class="col">
                 <div class="card h-100" style="padding:20px;">
-                    <img class="card-img-top"  style="margin-top:50px;" src="{{$blog->thumb_image}}" alt="Card image cap" />
+                    <img class="card-img-top"  style="margin-top:50px; width: 200px; height: 150px;" src="{{$blog->thumb_image}}" alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">{{$blog->title}}</h5>
                         <p class="card-text">

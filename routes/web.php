@@ -13,6 +13,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\ImageProcessController;
 use App\Http\Controllers\Import\ImportBlogController;
 use App\Http\Controllers\Export\ExportBlogController;
+use App\Http\Controllers\AdminUserController;
 //dd(Config::get('app.name'));
 
 Route::get('/welcome',function (){
@@ -81,6 +82,11 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/import/blog-data',[ImportBlogController::class,'importForm'])->name("importForm");
     Route::post('/import/blog-data-store',[ImportBlogController::class,'importBlogs'])->name("import-blog.store");
 
+    //user
+    Route::get('admin/user-setting/',[AdminUserController::class,'index']);
+    Route::post('admin/user/setting/update-basic',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
+    Route::post('admin/user/setting/update-skill',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
+    Route::post('admin/user/setting/update-about',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
 
     //check api data...
     Route::get('check/api-data',[BlogController::class,'ApiData']);
