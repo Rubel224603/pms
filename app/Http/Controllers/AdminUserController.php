@@ -24,22 +24,36 @@ class AdminUserController extends Controller
         //$user->profile_photo_url = $request->profile_photo_url;
 
         if($request->file('image')){
+            if($user->profile_photo_path && file_exists('uploads/user/'.$user->profile_photo_path)){
+                unlink('uploads/user/'.$user->profile_photo_path);
+            }
            $image = $request->file('image');
-           $imageName = time().'-'.$request->image->getClientOriginalExtension();
+           $imageName = time().'-.'.$request->image->getClientOriginalExtension();
 
-           $directory = 'backend/upload/user/';
+           $directory = 'uploads/user/';
            $image->move($directory,$imageName);
            $user->profile_photo_path = $imageName;
-           $user->profile_photo_url = url($directory.$user->profile_photo_path);
-           return     $user->profile_photo_url ;
+           //return  "uploads/user/". $user->profile_photo_path;
+           //$user->profile_photo_url = url($directory.$user->profile_photo_path);
+           //return $user->profile_photo_url ;
 
 
         }
-        $user->mobile             = $request->mobile;
+        $user->mobile  = $request->mobile;
         $user->save();
         return back()->with('message'," Basic info Updated");
 
 
+    }
+    public function userProfile(){
+        $user = Auth::user();
+
+        return view('admin.user.profile',compact('user'));
+    }
+    public function userProfileEdit(){
+        $user =Auth::user();
+        //return $user;
+        return view('admin.user.edit-profile',compact('user'));
     }
 
 }

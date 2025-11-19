@@ -25,20 +25,18 @@
 
                             <ul class="navbar-nav flex-row align-items-center ms-auto">
                                 <!-- Place this tag where you want the button to render. -->
-                                <li class="nav-item lh-1 me-4">
-                                    <a class="github-button"
-                                        href="https://github.com/themeselection/materio-bootstrap-html-backend-template-free"
-                                        data-icon="octicon-star" data-size="large" data-show-count="true"
-                                        aria-label="Star themeselection/materio-bootstrap-html-backend-template-free on GitHub">Star</a>
-                                </li>
 
                                 <!-- User -->
                                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                     <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
                                         data-bs-toggle="dropdown">
                                         <div class="avatar avatar-online">
-                                            <img src="{{ asset('/') }}backend/assets/img/avatars/1.png" alt
-                                                class="w-px-40 h-auto rounded-circle" />
+
+{{--                                            <img src="{{ asset('/') }}backend/assets/img/avatars/1.png" alt--}}
+{{--                                                class="w-px-40 h-auto rounded-circle" />--}}
+                                            <img src="{{ asset('uploads/user/' . Auth::user()->profile_photo_path) }}"   class="w-px-40 h-px-40 rounded-circle">
+
+
                                         </div>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
@@ -47,8 +45,10 @@
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-shrink-0 me-2">
                                                         <div class="avatar avatar-online">
-                                                            <img src="{{ asset('/') }}backend/assets/img/avatars/1.png"
-                                                                alt class="w-px-40 h-auto rounded-circle" />
+                                                            <img src="{{ asset('uploads/user/' . Auth::user()->profile_photo_path) }}"   class="w-px-40 h-px-40 rounded-circle">
+
+{{--                                                            <img src="{{ asset('/') }}backend/assets/img/avatars/1.png"--}}
+{{--                                                                alt class="w-px-40 h-auto rounded-circle" />--}}
                                                         </div>
                                                     </div>
                                                     <div class="flex-grow-1">
@@ -62,27 +62,18 @@
                                             <div class="dropdown-divider"></div>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{url('admin/user/profile')}}">
                                                 <i class="ri-user-3-line ri-22px me-2"></i>
                                                 <span class="align-middle">My Profile</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="{{url('admin/user-setting/')}}">
                                                 <i class="ri-settings-4-line ri-22px me-2"></i>
                                                 <span class="align-middle">Settings</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <span class="d-flex align-items-center align-middle">
-                                                    <i class="flex-shrink-0 ri-file-text-line ri-22px me-3"></i>
-                                                    <span class="flex-grow-1 align-middle">Billing</span>
-                                                    <span
-                                                        class="flex-shrink-0 badge badge-center rounded-pill bg-danger h-px-20 d-flex align-items-center justify-content-center">4</span>
-                                                </span>
-                                            </a>
-                                        </li>
+
                                         <li>
                                             <div class="dropdown-divider"></div>
                                         </li>

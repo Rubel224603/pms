@@ -1,13 +1,6 @@
 @extends('admin.master')
 @section('body')
 
-        <!-- / Menu -->
-
-        <!-- Layout container -->
-
-          <!-- / Navbar -->
-
-          <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
 
@@ -51,31 +44,7 @@
 
                   </div>
                 </div>
-                <!--/ Congratulations card -->
-
-                <!-- Transactions -->
-
-                <!--/ Transactions -->
-
-
-
-                <!-- Total Earnings -->
-
-                <!--/ Total Earnings -->
-
-                <!-- Four Cards -->
-
-                <!--/ Total Earning -->
-
-                <!-- Sales by Countries -->
-
-                <!--/ Sales by Countries -->
-
-                <!-- Deposit / Withdraw -->
-
-                <!-- Deposit / Withdraw -->
-
-                <!-- Data Tables -->
+                  <!-- Data Tables -->
                 <div class="col-12">
                   <div class="card overflow-hidden">
                     <div class="table-responsive">
@@ -95,7 +64,11 @@
                             <td>
                               <div class="d-flex align-items-center">
                                 <div class="avatar avatar-sm me-4">
-                                  <img src="{{asset('/')}}admin/assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
+                                    @if($user->profile_photo_path)
+                                        <img src="{{asset('uploads/user/'.$user->profile_photo_path)}}" alt="">
+                                    @else
+                                        <img src="{{asset('/')}}admin/assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
+                                    @endif
                                 </div>
                                 <div>
                                   <h6 class="mb-0 text-truncate">{{$user->name}}</h6>

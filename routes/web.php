@@ -88,6 +88,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::post('admin/user/setting/update-skill',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
     Route::post('admin/user/setting/update-about',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
 
+    Route::get('admin/user/profile',[AdminUserController::class,'userProfile']);
+    Route::get('admin/user/profile/edit/',[AdminUserController::class,'userProfileEdit']);
+
+
     //check api data...
     Route::get('check/api-data',[BlogController::class,'ApiData']);
 
