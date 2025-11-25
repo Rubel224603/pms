@@ -14,6 +14,7 @@ use App\Http\Controllers\ImageProcessController;
 use App\Http\Controllers\Import\ImportBlogController;
 use App\Http\Controllers\Export\ExportBlogController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\Admin\CategoryBlogController;
 //dd(Config::get('app.name'));
 
 Route::get('/welcome',function (){
@@ -58,6 +59,16 @@ Route::get('/details/{id}',[WelcomeController::class,'details'])->name('details'
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+
+    //Category Blog...
+    Route::get('/blog-category/create',[CategoryBlogController::class,'createCategory']);
+    Route::post('/blog-category/store',[CategoryBlogController::class,'storeCategory']);
+    Route::get('/blog-category/list',[CategoryBlogController::class,'listCategory']);
+    Route::get('/blog-category/edit/{id}',[CategoryBlogController::class,'editCategory']);
+    Route::post('/blog-category/update/{id}',[CategoryBlogController::class,'updateCategory']);
+    Route::get('/blog-category/delete/{id}',[CategoryBlogController::class,'deleteCategory']);
+
+    //Blog...
     Route::get('/blog-create',[BlogController::class,'create'])->name('blog.create');
     Route::get('/blog-index',[BlogController::class,'index'])->name('blog.index');
     Route::get('/blog-edit/{id}',[BlogController::class,'edit'])->name('blog.edit');
