@@ -15,7 +15,7 @@ class WelcomeController extends Controller
 //        session(['myname'=>"Rubel Hosen"]);
 //        dd(session()->all());
 
-        return view('website.home.index',['blogs'=>Blog::latest()->paginate(30)]);
+        return view('website.home.index',['blogs'=>Blog::latest()->paginate(9)]);
     }
     public function details($id){
         return view('website.home.details',['blog'=>Blog::find($id)]);

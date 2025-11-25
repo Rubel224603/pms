@@ -1,19 +1,6 @@
 @extends('admin.master')
 @section('body')
 
-        <!-- / Menu -->
-
-        <!-- Layout container -->
-
-          <!-- Navbar -->
-
-
-          <!-- / Navbar -->
-
-          <!-- Content wrapper -->
-
-            <!-- Content -->
-
             <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Basic Layout -->
               <div class="row">
@@ -39,7 +26,7 @@
                             id="basic-default-message"
                             class="form-control"
                             placeholder="Place your content?"
-                            style="height: 60px" name="content" >{{$blog->content}}</textarea>
+                            style="height: 300px" name="content" >{{$blog->content}}</textarea>
                           <label for="basic-default-message">Content</label>
                             @error('content')
                             <p class="text-danger">{{$message}}</p>

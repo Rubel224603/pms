@@ -31,7 +31,7 @@
                         @csrf
                         <div class="form-floating form-floating-outline mb-6">
                           <input type="text" class="form-control" name="title"  value="{{old('title')}}"/>
-                          <label for="basic-default-fullname">Title</label>
+                          <label for="basic-default-fullname">Title</label>  
                             @error('title')
                                <p class="text-danger">{{$message}}</p>
                             @enderror
@@ -41,7 +41,7 @@
                             id="basic-default-message"
                             class="form-control"
                             placeholder="Place your content?"
-                             name="content" style="height: 200px;"> {{old('content')}}</textarea>
+                             name="content" style="height: 300px;"> {{old('content')}}</textarea>
                           <label for="basic-default-message">Content</label>
                             @error('content')
                                 <p class="text-danger">{{$message}}<p>
