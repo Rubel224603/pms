@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Blog;
+use App\Models\CategoryBlog;
 use App\PostRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class BlogController extends Controller
     }
     public function index(){
         $blogs = $this->postRepo->all();
-        //return $blogs;
+       // return $blogs;
 
         return view('admin.blog.index', compact('blogs'));
 
@@ -33,7 +34,8 @@ class BlogController extends Controller
  
 
     public function create(){
-        return view('admin.blog.create');
+        $categories = CategoryBlog::latest()->get();
+        return view('admin.blog.create',['categories'=>$categories]);
     }
 
     public function store(Request $request){
@@ -103,9 +105,9 @@ class BlogController extends Controller
             //Post_logs::addNewPostLog($id,$action);
             DB::commit();
 
-            return redirect('/blog-all')->with("update","post updated successfully");
-
-            //return redirect('/blog-index')->with("update","post updated successfully");
+            //return redirect('/blog-all')->with("update","post updated successfully");
+            return back()->with("message","Post Updated Successfully");
+           // return redirect('/blog-index')->with("update","post updated successfully");
 
         }
         catch (\Exception $e){
@@ -132,7 +134,7 @@ class BlogController extends Controller
             DB::commit();
             return back()->with('message',"Blog Deleted");
         }
-        catch (Exception $e){
+        catch (\Exception $e){
             DB::rollBack();
             return back()->with("message",$e->getMessage());
 

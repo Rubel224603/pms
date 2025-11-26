@@ -29,6 +29,20 @@
                     <div class="card-body">
                       <form action="{{route('blog.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
+                         <div class="form-floating form-floating-outline mb-6">
+                          {{-- <input type="text" class="form-control" name="title"  value="{{old('title')}}"/> --}}
+                          <select class="form-select">
+                                <option selected disabled>Choose...</option>
+                                @foreach($categories as $category)
+                                  <option value="{{$category->id}}">{{$category->name}}</option>
+                                
+                                @endforeach
+                          </select>
+                          <label for="basic-default-fullname">Select Category</label>  
+                            @error('title')
+                               <p class="text-danger">{{$message}}</p>
+                            @enderror
+                        </div>
                         <div class="form-floating form-floating-outline mb-6">
                           <input type="text" class="form-control" name="title"  value="{{old('title')}}"/>
                           <label for="basic-default-fullname">Title</label>  

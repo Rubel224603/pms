@@ -64,7 +64,8 @@ class Repository implements PostRepositoryInterface
     }
 
     public function allBlog(){
-        $blogs = Blog::latest()->paginate(15);
+       $blogs = Blog::latest()->paginate(15);
+        // $blogs = Blog::latest()->get();
         return $blogs;
     }
     public function search()

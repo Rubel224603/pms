@@ -82,7 +82,7 @@
             <a href="javascript:void(0);" class="menu-link menu-toggle">
 
                 <i class="menu-icon fa-solid fa-upload"></i>
-                <div>Blog post</div>
+                <div>Login User Blog </div>
             </a>
 
             <ul class="menu-sub">
@@ -104,7 +104,7 @@
             <a href="javascript:void(0);" class="menu-link menu-toggle">
 
                 <i class="menu-icon fa-solid fa-border-all"></i>
-                <div >All Blog</div>
+                <div >All User Blog</div>
             </a>
 
             <ul class="menu-sub">
