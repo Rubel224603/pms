@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Auth;
 class Repository implements PostRepositoryInterface
 {
     public function all(){
-        $blogUser = Auth::user()->id;
-        return Blog::where("user_id",$blogUser)->paginate(15);
+        $blogUser = Auth::user();
+       // return $blogUser;
+        $blogUserId = Auth::user()->id;
+       
+        
+        return Blog::where("user_id",$blogUserId)->paginate(15);
 
         //return Blog::latest()->paginate(5);
 

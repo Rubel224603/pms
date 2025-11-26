@@ -23,13 +23,14 @@ class BlogController extends Controller
     }
     public function index(){
         $blogs = $this->postRepo->all();
+        //return $blogs;
 
-            return view('admin.blog.index', compact('blogs'));
+        return view('admin.blog.index', compact('blogs'));
 
 
        // return view('admin.blog.index',['blogs'=>Blog::where('user_id',Auth::user()->id)->get()]);
     }
-
+ 
 
     public function create(){
         return view('admin.blog.create');

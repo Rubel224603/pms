@@ -56,6 +56,28 @@
         </li>
 
         <!-- Layouts -->
+           <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+
+             
+                <i class="fa-solid fa-layer-group menu-icon"></i>
+                <div>Blog Category</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ url('blog-category/create')}}" class="menu-link">
+                        <div>Create</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{url('blog-category/list') }}" class="menu-link">
+                        <div>Mange Category</div>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
 
@@ -77,6 +99,7 @@
 
             </ul>
         </li>
+     
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
 

@@ -13,27 +13,22 @@
         <div class="row">
           <div class="col-xl">
             <div class="card mb-6">
-              <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">All Category</h5>
-                 <div>
-                     <from class="d-flex justify-content-between" action="{{route('blog.all')}}" method="GET">
-                         @csrf
-                         <input type="search" class="form-control" style="width:300px !important;margin-right:10px; !important" >
-                         <input type="submit" class="btn btn-success bg-success" value="Search" style="" >
-                     </from>
-
-                 </div>
-               <p class="text-primary"> {{session('message')}}</p>
-                <p class="text-danger">{{session('update')}}</p>
-
+              <div class="card-header ">
+                <div class="d-flex d-flex justify-content-between">
+                  <h5 class="mb-0">All Category</h5>
+                      <p class="text-primary"> {{session('message')}}</p>
+                
+                  <a href="{{url('blog-category/create')}}" class='btn btn-success ms-5'>Add New Category</a>
+                </div>
+            
               </div>
               <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
                       <tr>
                           <th>Sl</th>
-                            <th>Blog Name</th>
-                            <th>Blog Slug</th>
+                            <th>Category Name</th>
+                            <th>Category Slug</th>
                           
                           
                             <th>Action</th>

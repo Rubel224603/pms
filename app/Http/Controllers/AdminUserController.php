@@ -41,6 +41,7 @@ class AdminUserController extends Controller
         }
         $user->mobile  = $request->mobile;
         $user->save();
+     
         return back()->with('message'," Basic info Updated");
 
 

@@ -7,11 +7,17 @@
               <div class="row">
                 <div class="col-xl">
                   <div class="card mb-6">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                      <h5 class="mb-0">Add  Blog Category</h5>
-                    <p class="text-primary">{{session('message')}}</p>
-                    <p class="text-danger">{{session('error')}}</p>
-                    <p class="text-success">{{session('success')}}</p>
+                    <div class="card-header ">
+                       <div class="d-flex d-flex justify-content-between">
+                        <h5 class="mb-0">All Category</h5>
+                         <p class="text-primary">{{session('message')}}</p>
+                        <p class="text-danger">{{session('error')}}</p>
+                        <p class="text-success">{{session('success')}}</p>
+                      
+                        <a href="{{url('blog-category/list')}}" class='btn btn-success ms-5'>All Category</a>
+                      </div>
+            
+                    
 
                     </div>
                     <div class="card-body">

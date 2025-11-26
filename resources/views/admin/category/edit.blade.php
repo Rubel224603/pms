@@ -15,10 +15,10 @@
 
                     </div>
                     <div class="card-body">
-                      <form action="{{url('blog-category/update.$ed')}}" method="POST" enctype="multipart/form-data">
+                      <form action="{{url('blog-category/update/'.$editCategory->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-floating form-floating-outline mb-6">
-                          <input type="text" class="form-control" name="name"  value="{{old('name')}}" placeholder="enter category title"/>
+                          <input type="text" class="form-control" name="name"  value="{{$editCategory->name}}" placeholder="enter category title"/>
                           <label for="basic-default-fullname">Category Title</label>  
                             @error('title')
                                <p class="text-danger">{{$message}}</p>
@@ -26,7 +26,7 @@
                         </div>
                      
                         <div class="form-floating form-floating-outline mb-6">
-                          <input type="text" class="form-control" name="slug"  value="{{old('slug')}}" placeholder="enter category slug "/>
+                          <input type="text" class="form-control" name="slug"  value="{{$editCategory->slug}}" placeholder="enter category slug "/>
                           <label for="basic-default-fullname">Category slug(optional)</label>  
                             @error('slug')
                                <p class="text-danger">{{$message}}</p>
@@ -48,10 +48,5 @@
 
 
 
-
-
-
-          </div>
-       
       </div>
 @endsection
