@@ -15,6 +15,7 @@ use App\Http\Controllers\Import\ImportBlogController;
 use App\Http\Controllers\Export\ExportBlogController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\Admin\CategoryBlogController;
+use App\Http\Controllers\SocialController;
 //dd(Config::get('app.name'));
 
 Route::get('/welcome',function (){
@@ -50,11 +51,17 @@ Route::post('students-from-store-api',[StudentFromStudentApiController::class,'s
 Route::get('/payment',[PaymentServiceController::class,'makePayment']);
 Route::get('/addnumber',[PaymentServiceController::class,'addNumber']);
 Route::get('/subtraction',[PaymentServiceController::class,'subtraction']);
-
+//for Frontentd...
 Route::get('/',[WelcomeController::class,'index']);
 Route::get('/demo',[WelcomeController::class,'myService']);
 Route::get('/home',[WelcomeController::class,'index'])->name('home');
+//for user 
 Route::get('/details/{id}',[WelcomeController::class,'details'])->name('details');
+Route::get('/user-login-google',[SocialController::class, 'redirectToGoogle'])->name('login-google');
+Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallback']);
+Route::get('/user-login',[WelcomeController::class,'userLogin'])->name('user.login');
+Route::get('/user-register',[WelcomeController::class,'userRegistraion'])->name('user.register');
+
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {

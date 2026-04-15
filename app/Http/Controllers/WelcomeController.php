@@ -34,6 +34,15 @@ class WelcomeController extends Controller
         $sum = $this->myService->sumCalculate(10, 5);
         return view('website.demo.index', compact('sum'));
     }
+    
+    public function userLogin()
+    {
+        return view('website.user-login');
+    }
+    public function userRegistraion()
+    {
+        return view('website.user-registration');
+    }
 
 
 
