@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index(){
-        return view('admin.dashboard.index', [
+        return view('backend.dashboard.index', [
             'totalBlog'=>Blog::count(),
             "totalUser"=>User::count(),
             'users'=>User::all()

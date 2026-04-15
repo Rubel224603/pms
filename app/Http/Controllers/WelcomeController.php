@@ -15,10 +15,10 @@ class WelcomeController extends Controller
 //        session(['myname'=>"Rubel Hosen"]);
 //        dd(session()->all());
 
-        return view('website.home.index',['blogs'=>Blog::latest()->paginate(9)]);
+        return view('frontend.home.index',['blogs'=>Blog::latest()->paginate(9)]);
     }
     public function details($id){
-        return view('website.home.details',['blog'=>Blog::find($id)]);
+        return view('frontend.home.details',['blog'=>Blog::find($id)]);
     }
 
 
@@ -32,16 +32,16 @@ class WelcomeController extends Controller
     public function myService()
     {
         $sum = $this->myService->sumCalculate(10, 5);
-        return view('website.demo.index', compact('sum'));
+        return view('frontend.demo.index', compact('sum'));
     }
-    
+
     public function userLogin()
     {
-        return view('website.user-login');
+        return view('frontend.user-login');
     }
-    public function userRegistraion()
+    public function userRegistration()
     {
-        return view('website.user-registration');
+        return view('frontend.user-registration');
     }
 
 

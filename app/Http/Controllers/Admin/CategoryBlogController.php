@@ -12,7 +12,7 @@ class CategoryBlogController extends Controller
 
     public function createCategory(){
 
-        return view("admin.category.create");
+        return view("backend.category.create");
     }
     public function storeCategory(Request $request){
 
@@ -27,25 +27,25 @@ class CategoryBlogController extends Controller
                $category->slug;
         }
         $category->save();
-        
+
         return back()->with("message","Blog Category Added Successfully");
 
     }
     public function listCategory(){
 
       $categories = CategoryBlog::latest()->get();
-       
-        return view('admin.category.list',compact("categories"));
+
+        return view('backend.category.list',compact("categories"));
     }
     public function editCategory($id){
 
         $editCategory = CategoryBlog::find($id);
-        return view('admin.category.edit',compact('editCategory'));
+        return view('backend.category.edit',compact('editCategory'));
     }
     public function updateCategory(Request $request,$id){
 
         $category = CategoryBlog::find($id);
-        
+
         $category->name = $request->name;
         if( $request->slug){
             $category->slug = $request->slug;

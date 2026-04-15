@@ -13,7 +13,7 @@ class AdminUserController extends Controller
 
         $user =Auth::user();
         //return $user;
-        return view('admin.user.update',compact('user'));
+        return view('backend.user.update',compact('user'));
     }
     public function basicUpdate(Request $request){
        // return $request;
@@ -48,12 +48,12 @@ class AdminUserController extends Controller
     public function userProfile(){
         $user = Auth::user();
 
-        return view('admin.user.profile',compact('user'));
+        return view('backend.user.profile',compact('user'));
     }
     public function userProfileEdit(){
         $user =Auth::user();
         //return $user;
-        return view('admin.user.edit-profile',compact('user'));
+        return view('backend.user.edit-profile',compact('user'));
     }
 
 }

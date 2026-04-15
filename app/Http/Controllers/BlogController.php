@@ -26,16 +26,16 @@ class BlogController extends Controller
         $blogs = $this->postRepo->all();
        // return $blogs;
 
-        return view('admin.blog.index', compact('blogs'));
+        return view('backend.blog.index', compact('blogs'));
 
 
-       // return view('admin.blog.index',['blogs'=>Blog::where('user_id',Auth::user()->id)->get()]);
+       // return view('backend.blog.index',['blogs'=>Blog::where('user_id',Auth::user()->id)->get()]);
     }
- 
+
 
     public function create(){
         $categories = CategoryBlog::latest()->get();
-        return view('admin.blog.create',['categories'=>$categories]);
+        return view('backend.blog.create',['categories'=>$categories]);
     }
 
     public function store(Request $request){
@@ -77,8 +77,8 @@ class BlogController extends Controller
     public function edit($id){
 
         $blog = $this->postRepo->find($id);
-        return view('admin.blog.edit',compact('blog'));
-       // return view("admin.blog.edit",['blog'=>Blog::find($id)]);
+        return view('backend.blog.edit',compact('blog'));
+       // return view("backend.blog.edit",['blog'=>Blog::find($id)]);
 
     }
 
@@ -146,19 +146,19 @@ class BlogController extends Controller
     {
         $blog = $this->postRepo->find($id);
 
-        return view('admin.blog.singlePost',compact('blog'));
+        return view('backend.blog.singlePost',compact('blog'));
     }
 
     public function allBlog(){
         $blogs = $this->postRepo->allBlog();
-        return view('admin.blog.allblog',compact('blogs'));
+        return view('backend.blog.allblog',compact('blogs'));
     }
 
     public function ApiData(){
         $response = Http::get('https://fakestoreapi.com/products');
         $responseDatas = $response->json();
 
-        return view('admin.ApiData.check',compact('responseDatas'));
+        return view('backend.ApiData.check',compact('responseDatas'));
     }
 
 

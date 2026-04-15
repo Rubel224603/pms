@@ -12,7 +12,7 @@ class ImportBlogController extends Controller
     //
 
     public function importForm(){
-        return view('admin.import.import-blog');
+        return view('backend.import.import-blog');
     }
     public function importBlogs(Request $request){
        // return $request;

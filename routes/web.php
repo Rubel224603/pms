@@ -20,11 +20,11 @@ use App\Http\Controllers\SocialController;
 
 Route::get('/welcome',function (){
     dd(app());
-    return view('website.index1');
+    return view('frontend.index1');
 });
 Route::get('/test',function (){
         app()->make('first_service');
-    //return view('website.index1');
+    //return view('frontend.index1');
 });
 Route::get('/test-one',function (){
 
@@ -51,16 +51,16 @@ Route::post('students-from-store-api',[StudentFromStudentApiController::class,'s
 Route::get('/payment',[PaymentServiceController::class,'makePayment']);
 Route::get('/addnumber',[PaymentServiceController::class,'addNumber']);
 Route::get('/subtraction',[PaymentServiceController::class,'subtraction']);
-//for Frontentd...
+//for Frontend...
 Route::get('/',[WelcomeController::class,'index']);
 Route::get('/demo',[WelcomeController::class,'myService']);
 Route::get('/home',[WelcomeController::class,'index'])->name('home');
-//for user 
+//for user
 Route::get('/details/{id}',[WelcomeController::class,'details'])->name('details');
 Route::get('/user-login-google',[SocialController::class, 'redirectToGoogle'])->name('login-google');
 Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallback']);
 Route::get('/user-login',[WelcomeController::class,'userLogin'])->name('user.login');
-Route::get('/user-register',[WelcomeController::class,'userRegistraion'])->name('user.register');
+Route::get('/user-register',[WelcomeController::class,'userRegistration'])->name('user.register');
 
 
 
@@ -101,13 +101,13 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::post('/import/blog-data-store',[ImportBlogController::class,'importBlogs'])->name("import-blog.store");
 
     //user
-    Route::get('admin/user-setting/',[AdminUserController::class,'index']);
-    Route::post('admin/user/setting/update-basic',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
-    Route::post('admin/user/setting/update-skill',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
-    Route::post('admin/user/setting/update-about',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
+    Route::get('backend/user-setting/',[AdminUserController::class,'index']);
+    Route::post('backend/user/setting/update-basic',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
+    Route::post('backend/user/setting/update-skill',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
+    Route::post('backend/user/setting/update-about',[AdminUserController::class,'basicUpdate'])->name('user-update-basic');
 
-    Route::get('admin/user/profile',[AdminUserController::class,'userProfile']);
-    Route::get('admin/user/profile/edit/',[AdminUserController::class,'userProfileEdit']);
+    Route::get('backend/user/profile',[AdminUserController::class,'userProfile']);
+    Route::get('backend/user/profile/edit/',[AdminUserController::class,'userProfileEdit']);
 
 
     //check api data...

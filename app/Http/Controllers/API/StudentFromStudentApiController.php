@@ -14,8 +14,8 @@ class StudentFromStudentApiController extends Controller
 
        if($response->successful()){
            $students = $response->json();
-            return view('website.students.index',['students'=>$students]);
-           // return view('website.students.index',compact('students'));
+            return view('frontend.students.index',['students'=>$students]);
+           // return view('frontend.students.index',compact('students'));
         }
        return("failed to data fetch");
     }
@@ -27,14 +27,14 @@ class StudentFromStudentApiController extends Controller
         if($response->successful()){
 
             $student= $response->json();
-            return view('website.students.singleStudent',['student'=>$student]);
+            return view('frontend.students.singleStudent',['student'=>$student]);
 
         }
         return("failed to data fetch");
     }
 
     public function addForm(){
-        return view('website.students.addStudent');
+        return view('frontend.students.addStudent');
     }
 
     public function storeStudent(Request $request){

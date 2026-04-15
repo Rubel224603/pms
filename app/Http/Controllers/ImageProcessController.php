@@ -11,7 +11,7 @@ class ImageProcessController extends Controller
 {
     //
     public function createImageProcessing(){
-        return view('admin.image.create');
+        return view('backend.image.create');
     }
 
     public function storeImageProcessing(Request $request){
@@ -53,12 +53,12 @@ class ImageProcessController extends Controller
     public function listImageProcessing(){
         $processImages = ImageProcess::latest()->paginate(5);
         //  return $processImages;
-        return view('admin.image.list' ,compact('processImages'));
+        return view('backend.image.list' ,compact('processImages'));
     }
     public function editImageProcessing($id){
         $processImage = ImageProcess::find($id);
        // return $processImage;
-        return view('admin.image.edit' ,compact('processImage'));
+        return view('backend.image.edit' ,compact('processImage'));
     }
 
     public function updateProcessImage(Request $request, $id){
@@ -125,7 +125,7 @@ class ImageProcessController extends Controller
 
     }
     public function check(){
-        return view('admin.image.check');
+        return view('backend.image.check');
     }
 
 
