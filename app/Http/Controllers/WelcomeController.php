@@ -37,11 +37,11 @@ class WelcomeController extends Controller
 
     public function userLogin()
     {
-        return view('frontend.user-login');
+        return view('frontend.auth.user-login');
     }
     public function userRegistration()
     {
-        return view('frontend.user-registration');
+        return view('frontend.auth.user-registration');
     }
 
 

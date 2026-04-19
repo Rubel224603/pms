@@ -1,29 +1,43 @@
 <?php
 
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\PaymentServiceController;
-use App\Http\Services\PaymentService;
 use App\Http\Controllers\API\StudentFromStudentApiController;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\ImageProcessController;
-use App\Http\Controllers\Import\ImportBlogController;
-use App\Http\Controllers\Export\ExportBlogController;
-use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\PaymentServiceController;
 use App\Http\Controllers\Admin\CategoryBlogController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\Import\ImportBlogController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\Export\ExportBlogController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SocialController;
-//dd(Config::get('app.name'));
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+//before route...
 
 Route::get('/welcome',function (){
     dd(app());
     return view('frontend.index1');
 });
 Route::get('/test',function (){
-        app()->make('first_service');
+    app()->make('first_service');
     //return view('frontend.index1');
 });
 Route::get('/test-one',function (){
@@ -43,8 +57,6 @@ Route::get('students-from-api',[StudentFromStudentApiController::class,'getStude
 Route::get('students-from-api/{id}',[StudentFromStudentApiController::class,'singleStudent']);
 Route::get('student-from-add-api',[StudentFromStudentApiController::class,'addForm'])->name('student.add.form');
 Route::post('students-from-store-api',[StudentFromStudentApiController::class,'storeStudent'])->name('student.store.api');
-
-
 
 
 
