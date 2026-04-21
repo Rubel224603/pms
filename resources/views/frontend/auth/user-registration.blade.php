@@ -54,9 +54,9 @@
                     <!-- /Logo -->
 
                     <div class="card-body mt-1">
+                        <p>{{session('message')}}</p>
 
-
-                        <form id="formAuthentication" class="mb-5"  method="POST">
+                        <form id="formAuthentication" class="mb-5"  method="POST" action="{{route('user-store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-floating form-floating-outline mb-5">
                                 <input type="text" class="form-control" id="email" name="name"
@@ -88,7 +88,7 @@
                                     <div class="input-group input-group-merge">
                                         <div class="form-floating form-floating-outline">
                                             <input type="password" id="password" class="form-control"
-                                                name="password_confirmation"
+                                                name="conf_password"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                                 aria-describedby="password" />
                                             <label for="password">Confirm Password</label>
@@ -100,7 +100,10 @@
                             </div>
 
                             <div class="mb-5">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Register</button>
+{{--                                <input class="btn btn-primary d-grid w-100" type="submit">Register--}}
+                                <button class="btn btn-primary d-grid w-100 waves-effect waves-light" type="submit">Register</button>
+
+
                             </div>
                         </form>
 

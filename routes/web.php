@@ -72,8 +72,9 @@ Route::get('/details/{id}',[WelcomeController::class,'details'])->name('details'
 Route::get('/user-login-google',[SocialController::class, 'redirectToGoogle'])->name('login-google');
 Route::get('auth/google/callback', [SocialController::class, 'handleGoogleCallback']);
 Route::get('/user-login',[WelcomeController::class,'userLogin'])->name('user.login');
-Route::get('/user-register',[WelcomeController::class,'userRegistration'])->name('user.register');
+Route::get('/user-registration',[WelcomeController::class,'UserRegistration'])->name('user.register');
 
+Route::post('/user-added',[WelcomeController::class,'userStore'])->name('user-store');
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
