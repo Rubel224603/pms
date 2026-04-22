@@ -29,6 +29,7 @@ class User extends Authenticatable
         'password',
         'google_id',
         'profile_photo_path',
+        'mobile'
     ];
 
     /**

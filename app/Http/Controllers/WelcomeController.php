@@ -40,29 +40,7 @@ class WelcomeController extends Controller
     {
         return view('frontend.auth.user-login');
     }
-    public function userRegistration()
-    {
-        return view('frontend.auth.user-registration');
-    }
-    public function userStore(Request $request)
-    {
-        $request->validate([
-            'name'          => 'required|string|max:255',
-            'email'         => 'required|email',
-            'password'      => 'required|string|min:6',
-            'conf_password' => 'required|string|min:6|same:password',
-        ]);
-        $user  = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        if( $request->password == $request->conf_password){
-            $user->password = Hash::make($request->password);
-        }
 
-        $user->save();
-        return back()->with('message',"User registration success");
-
-    }
 
 
 
